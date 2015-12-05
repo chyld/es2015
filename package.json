@@ -19,7 +19,10 @@
     "run-sequence": "^1.1.5"
   },
   "dependencies": {
+    "body-parser": "^1.14.1",
     "express": "^4.13.3",
+    "morgan": "^1.6.1",
+    "multer": "^1.1.0",
     "request": "^2.67.0"
   }
 }
