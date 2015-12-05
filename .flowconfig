@@ -6,6 +6,6 @@
 [include]
 
 [libs]
-interfaces/
+flow/
 
 [options]
