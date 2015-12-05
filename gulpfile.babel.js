@@ -3,7 +3,7 @@ import shell from 'gulp-shell';
 import rimraf from 'rimraf';
 import run from 'run-sequence';
 import watch from 'gulp-watch';
-import express from 'gulp-express';
+import server from 'gulp-live-server';
 
 const paths = {
   js: ['./src/**/*.js'],
@@ -11,11 +11,11 @@ const paths = {
 }
 
 gulp.task('default', cb => {
-  run('build', 'watch', cb);
+  run('server', 'build', 'watch', cb);
 });
 
 gulp.task('build', cb => {
-  run('clean', 'flow', 'babel', 'server', cb);
+  run('clean', 'flow', 'babel', 'restart', cb);
 });
 
 gulp.task('clean', cb => {
@@ -30,8 +30,14 @@ gulp.task('babel', shell.task([
   'babel src --out-dir app'
 ]));
 
+let express;
+
 gulp.task('server', () => {
-  express.run(['./app']);
+  express = server.new(paths.destination);
+});
+
+gulp.task('restart', () => {
+  express.start.bind(express)();
 });
 
 gulp.task('watch', () => {

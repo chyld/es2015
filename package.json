@@ -12,7 +12,7 @@
     "babel-preset-es2015-node5": "^1.1.1",
     "babel-preset-stage-0": "^6.1.18",
     "gulp": "^3.9.0",
-    "gulp-express": "^0.3.5",
+    "gulp-live-server": "0.0.29",
     "gulp-shell": "^0.5.1",
     "gulp-watch": "^4.3.5",
     "rimraf": "^2.4.4",
